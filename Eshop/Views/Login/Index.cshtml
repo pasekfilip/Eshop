@@ -1,0 +1,25 @@
+﻿@model Eshop.Models.Tables.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post, htmlAttributes: new { @class = "loginform" }))
+{
+    <div class="loginheader">
+        <h2>Login</h2>
+        <p>Please log in using your account credentials below.</p>
+    </div>
+    <div class="form">
+        <input type="text" name="username" placeholder="Email" class="input" />
+        <input type="password" name="password" placeholder="Password" class="input" />
+        <div class="submit">
+            <button class="loginsignupbutton" type="submit">Log in</button>
+            <br />
+            <p class="loginp">Don't have an account yet? Create one by @Html.ActionLink("signing up", "Index", "Register").</p>
+            <br />
+            @Html.ValidationMessage(String.Empty, htmlAttributes: new { @class = "text-danger" })
+        </div>
+    </div>
+}

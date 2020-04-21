@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/Site.css")
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CheckoutCustomer</title>
+</head>
+<body>
+    <div class="checkoutmainwrapper">
+        <div class="leftsidewrapper">
+            <a id="checkoutdebralogoinitial" class="checkoutdebralogoa" href="/Home"><img class="checkoutdebralogo" src="~/Icons/debra-logo-b_300x.png" alt="Alternate Text" /></a>
+            <div class="checkoutpath">
+                <span class="checkoutlink checkoutlinkcurrent"><a class="checkoutlinka" href="/Payment/Cart">Cart</a></span> >
+                <span class="checkoutlink checkoutlinkcurrent"><a class="checkoutlinka" href="/Payment/CheckoutCustomer">Information</a></span> >
+                <span class="checkoutlink checkoutlinkbold">Shipping</span> >
+                <span class="checkoutlink checkoutlinkweak">Payment</span>
+            </div>
+            <div class="checkoutmainformwrapper">
+                <form action="/" method="post">
+                    <div class="checkoutshippingfirsttable">
+                        <div class="checkoutshippingrow">
+                            <span class="checkouttabletext checkouttableweak">Contact</span>
+                            <span class="checkouttabletext">email@gmail.com</span>
+                            <a class="checkouttablea" href="#">Change</a>
+                        </div>
+                        <div class="checkoutcustomhr checkoutrighthr"></div>
+                        <div class="checkoutshippingrow">
+                            <span class="checkouttabletext checkouttableweak">Ship to</span>
+                            <span class="checkouttabletext">Address 1, Apartment, suite, POSTAL CODEEEEEEEEEEEEEEEEEE City, Czech republic</span>
+                            <a class="checkouttablea" href="#">Change</a>
+                        </div>
+                    </div>
+                    <div class="checkoutshippingsecondtable">
+                        <p class="checkoutcontactp">Shipping method</p>
+                        <div class="checkoutshippingwrapper">
+                            <input class="checkoutshippingradio" id="r1" type="radio" name="radio" value="1" checked="checked">
+                            <label class="checkouttabletext checkouttableweak" for="r1">Standard</label>
+                            <span class="checkoutshippingpricespan">$0.24</span>
+                        </div>
+                                
+                                @*<input class="checkoutshippingradio" id="r2" type="radio" name="radio" value="2" checked>
+                                <label for="r2">Standard</label>*@
+                    </div>
+                    <div class="checkoutshippingbottom">
+                        <a class="checkoutreturnlinka" href="#">< Return to cart</a>
+                        <a class="checkoutcontinuebutton" onclick="document.querySelector('form').submit()" href="#">Continue to payment</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="rightsidewrapper">
+            <div>
+                <div class="checkoutrightsidewrapper">
+                    <div class="checkoutproductimagewrapper">
+                        <img class="checkoutproductimage" src="/Icons/Product_Images/green_bag.png" alt="Alternate Text" />
+                    </div>
+                    <span class="checkoutproductquantity">
+                        <span class="checkoutquantitytext">1</span>
+                    </span>
+                    <span class="checkoutproductname">
+                        Demo product title
+                    </span>
+                    <span class="checkoutproductprice">
+                        $50
+                    </span>
+                </div>
+                <div class="checkoutcustomhr"></div>
+                <div class="checkoutrightsubtable">
+                    <p class="checkoutrightsubp">Subtotal</p>
+                    <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightboldprice">$50</p>
+                    <p class="checkoutrightsubp">Shipping</p>
+                    <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightboldprice">$0.24</p>
+                </div>
+                <div class="checkoutcustomhr"></div>
+                <div class="checkoutrightsubtotal">
+                    <p class="checkoutrightsubtotalp">Total</p>
+                    <span class="checkoutrightsubtotalmainspan"><span class="checkoutrightsubtotalusdspan">USD</span> <span class="checkoutrightsubtotalpricespan">$50</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

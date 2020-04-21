@@ -1,0 +1,231 @@
+﻿@using Eshop.Models.Tables;
+@model dynamic
+
+
+@{
+    ViewBag.Title = "Home Page";
+    int DescLenght = Model.ProductById.Description.Length;
+}
+@section scripts{
+    <script>
+        $(".addtocartbutton").click(() => {
+            const qty = document.querySelector(".quantityinput").value;
+            let Product =
+            {
+                Id: "@Model.ProductById.Id",
+                Name: "@Model.ProductById.Name",
+                Description: `@Model.ProductById.Description`,
+                Price: "@Model.ProductById.Price",
+                Photo: ["@Model.ProductById.Photo[0]"],
+                Quantity: `${qty}`
+            }
+
+            $.ajax(
+                {
+                    type: "Post",
+                    url: '@Url.Action("AddingProductsToCart", "Payment")',
+                    data: JSON.stringify(
+                        {
+                            'product': Product
+                        }),
+                    datatype: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    complete: function () {
+                         window.location.pathname = "Payment/Cart";
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert("jqXHR:" + jqXHR.status + " errorThrown: " + errorThrown);
+                    }
+                });
+        })
+        function ChangeMainPicture(id) {
+
+            var img = document.getElementById('productmainimg');
+            switch (id) {
+                case '0':
+                    img.src = "@Model.ProductById.Photo[0]";
+                    break;
+                case '1':
+                    img.src = "@Model.ProductById.Photo[1]";
+                    break;
+                case '2':
+                    img.src = "@Model.ProductById.Photo[2]";
+                    break;
+                case '3':
+                    img.src = "@Model.ProductById.Photo[3]";
+                    break;
+            }
+        }
+    </script>
+
+
+}
+
+
+
+<div class="breadcrumb">
+    <div class="pcontainer">
+        <p class="productitle">Demo product title</p>
+        <a class="pathlink" href="//Views/Home/Index.cshtml"><span class="path">Home</span></a>
+        <span class="patharrow">></span>
+        <span class="pathsub">@Model.ProductById.Name</span>
+    </div>
+</div>
+<div class="productdetailmain1">
+    <div class="productinfo">
+        <p class="productitle2">@Model.ProductById.Name</p>
+        <div class="productstars">
+            <div class="productstarswrapper">
+                @for (int i = 0; i < 5; i++)
+                {
+                    if (Model.ProductById.Score > i)
+                    {
+                        <img class="starscore2" src="~/Icons/star_score_full.png" alt="Star" />
+
+                    }
+                    else
+                    {
+                        <img class="starscore2" src="~/Icons/star_score_empty.png" alt="Star" />
+                    }
+                }
+            </div>
+            <span class="productreviewscount">No Reviews</span>
+        </div>
+        <p class="productprice">$@Model.ProductById.Price</p>
+        <div class="productinfowrapper">
+            <div class="productsingleinfo">
+                <span class="productlabel">Vendor:</span>
+                <a class="productvendora" href="#"><span id="productvaluevendor" class="productvalue">@Model.ProductById.Vendor</span></a>
+            </div>
+            <div class="productsingleinfo">
+                <span class="productlabel">SKU:</span>
+                <span class="productvalue">@Model.ProductById.Sku</span>
+            </div>
+            <div class="productsingleinfo">
+                <span class="productlabel">Availability:</span>
+                <span class="productvalue">
+                    @if (Model.ProductById.Availability)
+                    {
+                        string result = "In Stock";
+                        @result;
+                    }
+                </span>
+            </div>
+        </div>
+
+        <p class="productdescription">
+            @Model.ProductById.Description.Substring(0, DescLenght / 4)
+        </p>
+        <span class="quantitywrapper">
+                <span class="quantitylabel">Qty</span>
+                <span class="quantity">
+                    <input class="quantityinput" type="number" min="0" max="9" step="1" name="Quantity" value="1" />
+                </span>
+
+                <span class="addtocartwrapper">
+                    <a class="addtocartbutton" href="#">Add to cart</a>
+                </span>
+        </span>
+
+        <div class="buyitnowwrapper">
+            <form action="/" method="post">
+                <a class="buyitnowbutton" href="#">Buy it now</a>
+            </form>
+
+        </div>
+        <div class="comparewishlistmainwrapper">
+            <div class="comparewishlisthover">
+                <div id="compareimgwrapper" class="comparewishlistwrapper"></div>
+                <a class="comparewishlista" href="#">Compare this product</a>
+            </div>
+            <div class="comparewishlisthover">
+                <div id="wishlistimgwrapper" class="comparewishlistwrapper"></div>
+                <a class="comparewishlista" href="#">Add to wishlist</a>
+            </div>
+        </div>
+        <div class="shareproductmainwrapper">
+            <p class="sharep">SHARE THIS PRODUCT:</p>
+            <a href="https://facebook.com/"><span class="shareproduct" id="shareproductfacebook"></span></a>
+            <a href="https://twitter.com/"><span class="shareproduct" id="shareproducttwitter"></span></a>
+            <a href="https://aboutme.google.com/u/0/?referer=gplus"><span class="shareproduct" id="shareproductgplus"></span></a>
+            <a href="https://www.pinterest.com/"><span class="shareproduct" id="shareproductpinterest"></span></a>
+        </div>
+        <div class="guaranteedcheckout">
+            <p class="paymentmethodp">GUARANTEED CHECKOUT:</p>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/Amazon.png" alt="Amazon" /></span>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/Visa.png" alt="Visa" /></span>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/Mastercard.png" alt="Mastercard" /></span>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/PayPal.png" alt="PayPal" /></span>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/Discover.png" alt="Discover" /></span>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/AmericanExpress.png" alt="American Express" /></span>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/ApplePay.png" alt="Apple Pay" /></span>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/ShopPay.png" alt="Shop Pay" /></span>
+            <span><img class="paymentmethodimg" src="/Icons/Payment_Methods/GooglePay.png" alt="Google Pay" /></span>
+        </div>
+        <div></div>
+    </div>
+    <div class="productimgs">
+        <div class="productmainimgwrapper">
+            <img class="productmainimg" id="productmainimg" src="@Model.ProductById.Photo[0]" alt="Product Image" />
+        </div>
+        <div class="productsubimg">
+            @for (int i = 0; i < Model.ProductById.Photo.Length; i++)
+            {
+                <a style="cursor:pointer" onclick="ChangeMainPicture('@i'); ChangeBorderColor('@i');"><img class="productsubimg1" src="@Model.ProductById.Photo[i]" alt="Product Image" /></a>
+            }
+        </div>
+    </div>
+</div>
+<div class="productdetailmain2">
+    <div class="productdetailsmainwrapper">
+        <div class="relatedproductsspanwrapper">
+            <span id="productdetailheadingactive" class="productdetailheading">Description</span>
+            <span class="productdetailheading">Reviews</span>
+            <span class="productdetailheading">Comments</span>
+            <span class="productdetailheading">Shipping Policy</span>
+            <span class="productdetailheading">Size Chart</span>
+        </div>
+
+
+        <p class="productlongdescription">
+            @Model.ProductById.Description.Substring(DescLenght / 4, DescLenght - (DescLenght / 4))
+        </p>
+
+        <p class="productlongdescription">
+            @Model.ProductById.Description.Substring(DescLenght)
+        </p>
+    </div>
+    <div class="productdetailrelatedproductswrapper">
+        <p class="relatedproductheading">Related Products</p>
+        <div class="relatedproductwrapper">
+            @foreach (ProductLabelImages item in Model.RelatedProducts)
+            {
+                <div class="productwrapperrelated">
+                    <a href="#">
+                        <div class="relatedproductimgdiv">
+                            <img class="relatedproductimg" src="@item.Photo[0]"
+                                 onmouseover="sImg(this,'@item.Photo[1]');" onmouseout="fImg(this, '@item.Photo[0]');"
+                                 alt="Alternate Text" />
+                        </div>
+                    </a>
+                    <a class="productname" href="#"><p class="productname">@item.Name</p></a>
+                    <div class="stars">
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            if (item.Score > i)
+                            {
+                                <img class="starscore" src="~/Icons/star_score_full.png" alt="Star" />
+
+                            }
+                            else
+                            {
+                                <img class="starscore" src="~/Icons/star_score_empty.png" alt="Star" />
+                            }
+                        }
+                    </div>
+                    <p class="pricetag">$@item.Price</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>

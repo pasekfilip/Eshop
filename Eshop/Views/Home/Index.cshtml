@@ -1,0 +1,179 @@
+﻿@using Eshop.Models.Tables;
+@model dynamic
+
+
+<div class="imgwrapper">
+    <img class="img" src="/Icons/Images/homepage.png" alt="">
+    <p id="heading1">COSMETIC BEST SELLING</p>
+    <p id="heading2">Fashion Cosmetic</p>
+    <div id="heading3">
+        <p>It has survived not only five centuries, but also the leap into electronic</p>
+        <p>typesetting, remaining essentially unchanged.</p>
+    </div>
+    <a href="#"><div class="buttonwrapper">Shopping Now</div></a>
+</div>
+<div class="sectionwrapper">
+    <div class="section">
+        <div class="subsection">
+            <img src="/Icons/truck_icon.png" alt="Truck Icon">
+            <div>
+                <p class="pinkhead">Free Shipping</p>
+                <p class="subhead">Free shipping on order</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="subsection">
+            <img src="/Icons/headphones_icon.png" alt="Headphones Icon">
+            <div>
+                <p class="pinkhead">Support 24/7</p>
+                <p class="subhead">Contact us 24/7 a day</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="subsection">
+            <img src="/Icons/lock_icon.png" alt="Lock Icon">
+            <div>
+                <p class="pinkhead">Payment Secure</p>
+                <p class="subhead">Free shipping on order</p>
+            </div>
+        </div>
+    </div>
+</div>
+<p id="arrivals">Arrivals Product</p>
+<div class="subarrivalswrapper">
+    @Ajax.ActionLink("Top Sell", "TopSell", "Home", new AjaxOptions()
+  {
+      HttpMethod = "GET",
+      UpdateTargetId = "productsmainwrapper",
+      InsertionMode = InsertionMode.Replace
+  },
+                                          htmlAttributes: new { @class = "subarrivals" })
+    @Ajax.ActionLink("Best Sellers", "BestSellers", "Home", new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "productsmainwrapper",
+    InsertionMode = InsertionMode.Replace
+},
+                                        htmlAttributes: new { @class = "subarrivals" })
+    @Ajax.ActionLink("New Arrivals", "NewArrivals", "Home", new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "productsmainwrapper",
+    InsertionMode = InsertionMode.Replace
+},
+                                        htmlAttributes: new { @class = "subarrivals" })
+</div>
+
+
+<div class="productsmainwrapper" id="productsmainwrapper">
+    @{Html.RenderAction("TopSell", "Home");}
+</div>
+<div class="banners">
+    <a href=""><img src="/Icons/Images/banner-1.png" alt=""></a>
+    <a href=""><img src="/Icons/Images/banner-2.png" alt=""></a>
+</div>
+
+<div class="subproductswrapper">
+    <div class="subproduct">
+        <p>Top Rated</p>
+        <div class="subproductsubwrapper">
+            @foreach (ProductLabelImages item in Model.TopRated)
+            {
+                <div class="subsubproduct">
+                    <a href="#">
+                        <div class="productimgsmaller" style="background-image: url(@item.Photo[0])"></div>
+                    </a>
+                    <div class="subsubproducttext">
+                        <p>@item.Name</p>
+                        <div class="stars">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (item.Score > i)
+                                {
+                                    <img class="starscore" src="~/Icons/star_score_full.png" alt="Star" />
+
+                                }
+                                else
+                                {
+                                    <img class="starscore" src="~/Icons/star_score_empty.png" alt="Star" />
+                                }
+                            }
+                        </div>
+                        <p class="pricetag">@item.Price$</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="subproduct">
+        <p>Featured</p>
+        <div class="subproductsubwrapper">
+            @foreach (ProductLabelImages item in Model.Featured)
+            {
+                <div class="subsubproduct">
+                    <a href="#">
+                        <div class="productimgsmaller" style="background-image: url(@item.Photo[0])"></div>
+                    </a>
+                    <div class="subsubproducttext">
+                        <p>@item.Name</p>
+                        <div class="stars">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (item.Score > i)
+                                {
+                                    <img class="starscore" src="~/Icons/star_score_full.png" alt="Star" />
+
+                                }
+                                else
+                                {
+                                    <img class="starscore" src="~/Icons/star_score_empty.png" alt="Star" />
+                                }
+                            }
+                        </div>
+                        <p class="pricetag">@item.Price$</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="subproduct">
+        <p>Bestseller Products</p>
+        <div class="subproductsubwrapper">
+            @foreach (ProductLabelImages item in Model.Featured)
+            {
+
+                <div class="subsubproduct">
+                    <a href="#">
+                        <div class="productimgsmaller" style="background-image: url(@item.Photo[0])"></div>
+                    </a>
+                    <div class="subsubproducttext">
+                        <p>@item.Name</p>
+                        <div class="stars">
+                            @for (int i = 0; i < 5; i++)
+                            {
+                                if (item.Score > i)
+                                {
+                                    <img class="starscore" src="~/Icons/star_score_full.png" alt="Star" />
+
+                                }
+                                else
+                                {
+                                    <img class="starscore" src="~/Icons/star_score_empty.png" alt="Star" />
+                                }
+                            }
+                        </div>
+                        <p class="pricetag">@item.Price$</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="newsletterwrapper">
+    <p class="signupheading">Sign Up For Newsletters</p>
+    <p class="signupsubheading">Be the first to know. Sign up for newsletter today.</p>
+    <input class="signupinput" type="text" placeholder="Your email adress">
+    <a class="signupbutton" href=""><div class="newsbuttondiv">Subscribe</div></a>
+</div>

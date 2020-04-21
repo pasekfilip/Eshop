@@ -1,0 +1,165 @@
+﻿@{ 
+    int count = 0;
+    if(Session["listOfProducts"] != null)
+    {
+        var session = ((List<Eshop.Models.Tables.ProductLabelImages>)Session["listOfProducts"]);
+        foreach (var item in session)
+        {
+            count += item.Quantity;
+        }
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @Scripts.Render("~/Scripts/script.js")
+</head>
+<body>
+    <div class="container">
+        <div class="navbar1">
+            <div class="gridmaincontainer1">
+                <div class="gridcontainer1">
+                    <ul class="sociallist">
+                        <li class="socialli">
+                            <p class="follow">Follow Us:</p>
+                        </li>
+                        <li class="socialli">
+                            <a href="https://www.facebook.com/"><img class="socialmedia" src="~/Icons/facebook_white.png" alt="Facebook" /></a>
+                        </li>
+                        <li class="socialli">
+                            <a href="https://twitter.com/"><img class="socialmedia" src="~/Icons/twitter_white.png" alt="Twitter" /></a>
+                        </li>
+                        <li class="socialli">
+                            <a href="https://aboutme.google.com/u/0/?referer=gplus"><img class="socialmedia" src="~/Icons/googleplus_white.png" alt="Google Plus" /></a>
+                        </li>
+                        <li class="socialli">
+                            <a href="https://www.instagram.com/"><img class="socialmedia" src="~/Icons/instagram_white.png" alt="Instagram" /></a>
+                        </li>
+                        <li class="socialli">
+                            <a href="https://www.youtube.com/"><img class="socialmedia" src="~/Icons/youtube_white.png" alt="Youtube" /></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="accountcurrency">
+                    <a href="/Login">My Account</a>
+                    <span>|</span>
+                    <a href="#">USD</a>
+                </div>
+            </div>
+            <hr />
+            <div class="gridmaincontainer2">
+                <div class="gridcontainer3">
+                    <a href="/Home" class="debralogo"><img src="~/Icons/debra-logo-w_300x.png" alt="Debra logo" /></a>
+                    <div class="searchwrapper">
+                        <input type="text" class="searchbar" name="name" placeholder="Search our store" value="" />
+                        <input type="submit" class="searchbutton" name="search" value="" />
+                    </div>
+                    <a href="#" class="cart">
+                        <div class="carta"></div>
+                        <div class="cartb">
+                            <div class="dot">
+                                <p>@count</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar2">
+            <a class="navbara">@Html.ActionLink("Home", "Index", "Home")</a>
+            <a class="navbara">@Html.ActionLink("Shop", "About", "Home")</a>
+            <a class="navbara">@Html.ActionLink("Products", "Contact", "Home")</a>
+            <a class="navbara">@Html.ActionLink("Blog", "Index", "Home")</a>
+            <a class="navbara">@Html.ActionLink("About", "About", "Home")</a>
+            <a class="navbara">@Html.ActionLink("Contact", "Contact", "Home")</a>
+        </div>
+    </div>
+    <div class="bodymain">
+        @RenderBody()
+        <footer>
+            <div class="footermainwrapper1">
+                <div class="footerwrapper1">
+                    <img class="logo" src="~/Icons/debra-logo-b_300x.png" alt="Debra" />
+                    <div class="footersubwrappers">
+                        <p class="headings">Address:</p>
+                        <a class="address" href="geo:4710-4890 Breckinridge St, UK Burlington, VT 05401">4710-4890 Breckinridge St, UK Burlington, VT 05401</a>
+                    </div>
+                    <div class="footersubwrappers">
+                        <p class="headings">Need Help?</p>
+                        <a class="tel" href="tel:18003456789">Call: 1-800-345-6789</a>
+                    </div>
+                    <div class="footersubwrappers">
+                        <p class="headings">Email:</p>
+                        <a class="email" href="mailto:example@example.com">example@example.com</a>
+                    </div>
+                </div>
+                <div class="footerwrapper2">
+                    <p class="headings2">About Us</p>
+                    <ul class="ul">
+                        <li class="ulli"><a href="#">About us</a></li>
+                        <li class="ulli"><a href="#">Store location</a></li>
+                        <li class="ulli"><a href="#">Contact</a></li>
+                        <li class="ulli"><a href="#">Orders tracking</a></li>
+
+                    </ul>
+                </div>
+                <div class="footerwrapper3">
+                    <p class="headings2">Useful Links</p>
+                    <ul class="ul">
+                        <li class="ulli"><a href="#">Returns</a></li>
+                        <li class="ulli"><a href="#">Support Policy</a></li>
+                        <li class="ulli"><a href="#">Size guide</a></li>
+                        <li class="ulli"><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footerwrapper4">
+                    <p class="headings3">Latest Blogs</p>
+                    <div class="blogwrapper">
+                        <div class="subblogwrapper">
+                            <img class="footerimg" src="~/Icons/Images/post1.jpg" alt="Alternate Text" />
+                            <div class="subsubwrapper">
+                                <p class="blogtitle"><a href="#">Temporibus autem quibusdam</a></p>
+                                <p>by Debra Demo Admin</p>
+                                <p>15 Jan 20</p>
+                            </div>
+                        </div>
+                        <div class="subblogwrapper">
+                            <img class="footerimg" src="~/Icons/Images/post2.jpg" alt="Alternate Text" />
+                            <div class="subsubwrapper">
+                                <p class="blogtitle"><a href="#">Temporibus autem quibusdam</a></p>
+                                <p>by Debra Demo Admin</p>
+                                <p>15 Jan 20</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="footermainwrapper2">
+                <p>Copyright © Vesoz All Rights Reserved.</p>
+                <div class="footerwrapper5">
+                    <ul class="dotslist">
+                        <li><a href="https://www.facebook.com/"><div class="circle" id="fb"></div></a></li>
+                        <li><a href="https://twitter.com/"><div class="circle" id="tw"></div></a></li>
+                        <li><a href="https://aboutme.google.com/u/0/?referer=gplus"><div class="circle" id="gp"></div></a></li>
+                        <li><a href="https://www.youtube.com/"><div class="circle" id="yt"></div></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

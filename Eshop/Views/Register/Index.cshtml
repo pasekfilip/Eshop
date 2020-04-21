@@ -1,0 +1,27 @@
+﻿@model Eshop.Models.Tables.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Index", "Register", FormMethod.Post, htmlAttributes: new { @class = "loginform" }))
+{
+    <div class="loginHeader">
+        <h2 class="loginp">Sign up</h2>
+        <p class="loginp">Please register by filling in your information below.</p>
+    </div>
+    <div class="form">
+        <input type="text" name="username" placeholder="First name" class="input" />
+        <input type="text" name="username" placeholder="Last name" class="input" />
+        <input type="text" name="username" placeholder="Email" class="input" />
+        <input type="password" name="password" placeholder="Password" class="input" />
+        <div class="submit">
+            <button class="loginsignupbutton" type="submit">Sign up</button>
+            <br />
+            <p class="loginp">Already have an account? @Html.ActionLink("Log in", "Index", "Login") to an existing account.</p>
+            <br />
+        </div>
+    </div>
+}

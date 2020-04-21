@@ -1,0 +1,33 @@
+﻿@model List<Eshop.Models.Tables.ProductLabelImages>
+@using Eshop.Models.Tables
+
+
+
+
+@foreach (ProductLabelImages item in Model)
+{
+    <div class="productwrapper">
+        <div class="productimgdiv">
+            <a href="/Home/OnProductClick/@item.Id">
+                <div class="productimg2" onmouseover="hideFirstImg(this,'@item.Photo[1]');" onmouseout="showFirstImg(this,'@item.Photo[0]')" style="background-image: url(@item.Photo[0])"></div>
+            </a>
+        </div>
+        <div class="producttextdiv">
+            <a class="productname" href="#"><p class="productname">@item.Name</p></a>
+            <div class="stars">
+                @for (int i = 0; i < 5; i++)
+                {
+                    if (item.Score > i)
+                    {
+                        <img class="starscore" src="~/Icons/star_score_full.png" alt="Star" />
+                    }
+                    else
+                    {
+                        <img class="starscore" src="~/Icons/star_score_empty.png" alt="Star" />
+                    }
+                }
+            </div>
+            <p class="pricetag">$@item.Price</p>
+        </div>
+    </div>
+}
