@@ -25,6 +25,11 @@ namespace Eshop.Controllers
             return View();
         }
 
+        public ActionResult CheckoutPayment()
+        {
+            return View();
+        }
+
         [HttpPost]
         public void AddingProductsToCart(ProductLabelImages product)
         {

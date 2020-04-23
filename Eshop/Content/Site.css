@@ -1942,11 +1942,12 @@ input[type=number] {
     border-radius: 4px;
     padding: 10px 10px 10px 10px;
     margin-top: 20px;
+    width: 100%;
 }
 
 .checkoutshippingrow {
     display: grid;
-    grid-template-columns: 12% 74% 14%;
+    grid-template-columns: 65px 1fr 60px;
     align-items: center;
     column-gap: 10px;
 }
@@ -1961,6 +1962,7 @@ input[type=number] {
 
 .checkouttabletext {
     font-size: 14px;
+    color: #333333;
 }
 
 .checkouttableweak {
@@ -1990,7 +1992,7 @@ input[type=number] {
 .checkoutshippingwrapper {
     border: 1px solid rgba(114,114,114,0.25);
     border-radius: 4px;
-    padding: 10px 10px 10px 10px;
+    padding: 15px 10px 15px 10px;
     margin-bottom: 20px;
 }
 
@@ -1998,10 +2000,56 @@ input[type=number] {
     border: none;
 }
 
+#checkoutshippingwrapperbeforespecial {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#checkoutshippingwrappernopadding {
+    padding: 0;
+    border-top: none;
+    border-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+#checkoutcustomhrspecial {
+    margin-bottom: 0;
+}
+
 .checkoutshippingpricespan {
     font-weight: 600;
     font-size: 14px;
     float: right;
+}
+
+#checkoutshippingp {
+    margin-top: 35px;
+}
+
+.checkoutpaymentp {
+    margin-top: 35px;
+    margin-bottom: 5px;
+}
+
+.checkoutpaymentsubtextdiv {
+    margin-bottom: 20px;
+}
+
+.checkoutpaymentleft {
+    float: unset;
+}
+
+.checkoutshippingbillingaddress {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 300px;
+}
+
+.checkoutshippingbillingaddresspadding {
+    width: 96%;
+    padding-left: 20px;
+    padding-top: 18px;
 }
 
 @media only screen and (max-width: 1250px) {

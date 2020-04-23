@@ -292,6 +292,7 @@
     <Content Include="Views\Shared\EmptyLayout.cshtml" />
     <Content Include="Views\Payment\InputsForCheckoutCustomer.cshtml" />
     <Content Include="Views\Payment\CheckoutShipping.cshtml" />
+    <Content Include="Views\Payment\CheckoutPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
