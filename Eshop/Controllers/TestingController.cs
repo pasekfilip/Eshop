@@ -1,4 +1,5 @@
 ﻿using Eshop.Models.Repo;
+using Eshop.Models.TemporaryClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,7 @@ namespace Eshop.Controllers
 {
     public class TestingController : Controller
     {
-        private ProductRepository _repository = new ProductRepository();
-        // GET: Testing
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-
+        
 
     }
 }

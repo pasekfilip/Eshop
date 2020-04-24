@@ -1,6 +1,7 @@
 ﻿using Eshop.Models.Checkout;
 using Eshop.Models.Tables;
 using Eshop.Models.TemporaryClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -16,8 +17,14 @@ namespace Eshop.Controllers
 
         public ActionResult CheckoutCustomer()
         {
-            var model = SetingUpBigModel(new Information());
+            Information information = (Information)Session["InformationAboutCustomer"] ?? new Information();
+            var model = SetingUpBigModel(information);
             return View("CheckoutCustomer", "~/Views/Shared/EmptyLayout.cshtml", model);
+        }
+
+        public ActionResult CheckoutSuccess()
+        {
+            return View();
         }
 
         public ActionResult CheckoutShipping()
@@ -26,11 +33,6 @@ namespace Eshop.Controllers
         }
 
         public ActionResult CheckoutPayment()
-        {
-            return View();
-        }
-
-        public ActionResult CheckoutSuccess()
         {
             return View();
         }
@@ -47,13 +49,9 @@ namespace Eshop.Controllers
                 ((List<ProductLabelImages>)Session["listOfProducts"]).Remove(ifProductExists);
 
                 product.Quantity += ifProductExists.Quantity;
+            }
 
-                ((List<ProductLabelImages>)Session["listOfProducts"]).Add(product);
-            }
-            else
-            {
-                ((List<ProductLabelImages>)Session["listOfProducts"]).Add(product);
-            }
+            ((List<ProductLabelImages>)Session["listOfProducts"]).Add(product);
         }
 
         [HttpPost]
@@ -61,8 +59,8 @@ namespace Eshop.Controllers
         {
             if (ModelState.IsValid)
             {
-                Session["InforamtionAboutCusotmer"] = information;
-                RedirectToAction("Index", "Home");
+                Session["InformationAboutCustomer"] = information;
+                return View("CheckoutShipping", information);
             }
 
             var model = SetingUpBigModel(information);
@@ -81,7 +79,7 @@ namespace Eshop.Controllers
         [HttpGet]
         public ActionResult DeleteProductFromCart(int id)
         {
-            
+
             if (((List<ProductLabelImages>)Session["listOfProducts"]).Count == 1)
             {
                 return ClearSession();

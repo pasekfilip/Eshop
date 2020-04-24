@@ -189,7 +189,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Icons\cart_black.png" />
     <Content Include="Icons\cart_white.png" />
-    <Content Include="Icons\checkout_success_tick.png" />
     <Content Include="Icons\debra-logo-b_300x.png" />
     <Content Include="Icons\debra-logo-w_300x.png" />
     <Content Include="Icons\facebook_original.png" />
@@ -275,7 +274,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -294,6 +292,8 @@
     <Content Include="Views\Payment\InputsForCheckoutCustomer.cshtml" />
     <Content Include="Views\Payment\CheckoutShipping.cshtml" />
     <Content Include="Views\Payment\CheckoutPayment.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Payment\ProductSide.cshtml" />
     <Content Include="Views\Payment\CheckoutSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>

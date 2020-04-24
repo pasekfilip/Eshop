@@ -1,54 +1,15 @@
 ﻿@using Eshop.Models.TemporaryClasses
+@using Eshop.Models.Checkout
 @model BigModelForInformation
 
 
-@{
-    decimal totalSum = 0M;
-}
 
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
 <div>
     <a class="checkoutdebralogoa" href="/Home"><img id="checkoutdebralogoaresponsive" class="checkoutdebralogo" src="~/Icons/debra-logo-b_300x.png" alt="Alternate Text" /></a>
     <div class="checkoutcustomhr checkoutcustomhrresponsive"></div>
 </div>
 <div class="checkoutmainwrapper">
     @{Html.RenderPartial("InputsForCheckoutCustomer", Model.InformationAboutCustomer);}
-    <div class="rightsidewrapper">
-        <div>
-            @foreach (var item in Model.Data) {
-                <div class="checkoutproductimagewrapper">
-                    <img class="checkoutproductimage" src="@item.Photo[0]" alt="Alternate Text" />
-                </div>
-                <span class="checkoutproductquantity">
-                    <span class="checkoutquantitytext">@item.Quantity</span>
-                </span>
-                <span class="checkoutproductname">
-                    @item.Name
-                </span>
-                <span class="checkoutproductprice">
-                    @{
-                        decimal sum = item.Quantity * @item.Price;
-                        totalSum += sum;
-                    }
-                    $@sum.00
-                </span>
-                <div class="checkoutrightblankspace"></div>
-            }
-            <div class="checkoutcustomhr"></div>
-            <div class="checkoutrightsubtable">
-                <p class="checkoutrightsubp">Subtotal</p>
-                <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightboldprice">$@totalSum.00</p>
-                <p class="checkoutrightsubp">Shipping</p>
-                <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightcalculated">Calculated at next step</p>
-            </div>
-            <div class="checkoutcustomhr"></div>
-            <div class="checkoutrightsubtotal">
-                <p class="checkoutrightsubtotalp">Total</p>
-                <span class="checkoutrightsubtotalmainspan"><span class="checkoutrightsubtotalusdspan">USD</span> <span class="checkoutrightsubtotalpricespan">$@totalSum.00</span></span>
-            </div>
-            <div id="checkoutcustomhrresponsivespecial" class="checkoutcustomhr checkoutcustomhrresponsive"></div>
-        </div>
-    </div>
+    @{Html.RenderPartial("ProductSide", Model.Data);}
 </div>

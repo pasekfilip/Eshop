@@ -1,0 +1,54 @@
+﻿@model List<Eshop.Models.Tables.ProductLabelImages>
+@{
+    decimal totalSum = 0M;
+    var ActionName = this.ViewContext.RouteData.Values["Action"] as string;
+    string shipping = "$0.24";
+    string classForP = "";
+    if (ActionName == "CheckoutCustomer")
+    {
+        shipping = "Calculated at next step";
+        classForP = "checkoutrightcalculated";
+    }
+    else
+    {
+        classForP = "checkoutrightboldprice";
+    }
+
+}
+<div class="rightsidewrapper">
+    <div>
+        @foreach (var item in Model)
+        {
+            <div class="checkoutproductimagewrapper">
+                <img class="checkoutproductimage" src="@item.Photo[0]" alt="Alternate Text" />
+            </div>
+            <span class="checkoutproductquantity">
+                <span class="checkoutquantitytext">@item.Quantity</span>
+            </span>
+            <span class="checkoutproductname">
+                @item.Name
+            </span>
+            <span class="checkoutproductprice">
+                @{
+                    decimal sum = item.Quantity * @item.Price;
+                    totalSum += sum;
+                }
+                $@sum.00
+            </span>
+            <div class="checkoutrightblankspace"></div>
+        }
+        <div class="checkoutcustomhr"></div>
+        <div class="checkoutrightsubtable">
+            <p class="checkoutrightsubp">Subtotal</p>
+            <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightboldprice">$@totalSum.00</p>
+            <p class="checkoutrightsubp">Shipping</p>
+            <p class="checkoutrightsubp checkoutrightrightsubp @classForP">@shipping</p>
+        </div>
+        <div class="checkoutcustomhr"></div>
+        <div class="checkoutrightsubtotal">
+            <p class="checkoutrightsubtotalp">Total</p>
+            <span class="checkoutrightsubtotalmainspan"><span class="checkoutrightsubtotalusdspan">USD</span> <span class="checkoutrightsubtotalpricespan">$@totalSum.00</span></span>
+        </div>
+        <div id="checkoutcustomhrresponsivespecial" class="checkoutcustomhr checkoutcustomhrresponsive"></div>
+    </div>
+</div>

@@ -7,9 +7,11 @@ img {
     max-width: 100%;
     height: auto;
 }
+
 .errorMessage {
     color: #ff9999;
 }
+
 container {
     text-align: center;
 }
@@ -1013,9 +1015,9 @@ input[type=number] {
     font-size: 16px;
 }
 
-.quantityinputcart:focus {
-    outline: 0;
-}
+    .quantityinputcart:focus {
+        outline: 0;
+    }
 
 .quantity-nav {
     float: left;
@@ -1450,20 +1452,20 @@ input[type=number] {
     margin-bottom: 20px;
 }
 
-.checkoutdebralogo:hover {
-    opacity: 50%;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-}
+    .checkoutdebralogo:hover {
+        opacity: 50%;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+    }
 
 .checkoutlinka {
     text-decoration: none;
     color: #ff9999;
 }
 
-.checkoutlinka:hover {
-    color: #ff8383;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-}
+    .checkoutlinka:hover {
+        color: #ff8383;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+    }
 
 .checkoutlink {
     font-size: 12px;
@@ -1505,10 +1507,10 @@ input[type=number] {
     text-decoration: none;
 }
 
-.checkoutloginlink:hover {
-    color: #ff8383;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-}
+    .checkoutloginlink:hover {
+        color: #ff8383;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+    }
 
 .checkoutproductimage {
     width: 60px;
@@ -1576,11 +1578,11 @@ input[type=number] {
     margin: 1px;
 }
 
-.checkoutinput:focus {
-    border: 2px solid #ff9999;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-    margin: 0px;
-}
+    .checkoutinput:focus {
+        border: 2px solid #ff9999;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+        margin: 0px;
+    }
 
 
 .checkoutcheckboxone {
@@ -1588,49 +1590,49 @@ input[type=number] {
     width: 0;
 }
 
-.checkoutcheckboxone + label {
-    position: relative;
-    display: flex;
-    margin: .6em 0;
-    align-items: center;
-    color: #737373;
-    transition: color 250ms cubic-bezier(.4,.0,.23,1);
-}
+    .checkoutcheckboxone + label {
+        position: relative;
+        display: flex;
+        margin: .6em 0;
+        align-items: center;
+        color: #737373;
+        transition: color 250ms cubic-bezier(.4,.0,.23,1);
+    }
 
-.checkoutcheckboxone + label > span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-    width: 16px;
-    height: 16px;
-    background: transparent;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 250ms cubic-bezier(.4,.0,.23,1);
-}
+        .checkoutcheckboxone + label > span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 16px;
+            width: 16px;
+            height: 16px;
+            background: transparent;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 250ms cubic-bezier(.4,.0,.23,1);
+        }
 
-.checkoutcheckboxone + label:hover, .checkoutcheckboxone:focus + label {
-    color: black;
-}
+        .checkoutcheckboxone + label:hover, .checkoutcheckboxone:focus + label {
+            color: black;
+        }
 
-.checkoutcheckboxone:checked + label > span {
-    border: 8px solid #ff9999;
-    animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
-}
+    .checkoutcheckboxone:checked + label > span {
+        border: 8px solid #ff9999;
+        animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
+    }
 
-.checkoutcheckboxone:checked + label > span:before {
-    content: "";
-    position: absolute;
-    top: 7.5px;
-    left: 3.25px;
-    border-right: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-    transform: rotate(45deg);
-    transform-origin: 0 100%;
-    animation: checkbox-check 125ms 250ms cubic-bezier(.4,.0,.23,1) forwards;
-}
+        .checkoutcheckboxone:checked + label > span:before {
+            content: "";
+            position: absolute;
+            top: 7.5px;
+            left: 3.25px;
+            border-right: 2px solid transparent;
+            border-bottom: 2px solid transparent;
+            transform: rotate(45deg);
+            transform-origin: 0 100%;
+            animation: checkbox-check 125ms 250ms cubic-bezier(.4,.0,.23,1) forwards;
+        }
 
 @keyframes shrink-bounce {
     0% {
@@ -1779,7 +1781,7 @@ input[type=number] {
 }
 
 /*# sourceMappingURL=ss.css.map */
- 
+
 
 
 .checkoutchekboxlabel {
@@ -1808,11 +1810,11 @@ input[type=number] {
     width: 100%;
 }
 
-.checkoutinputhalf:focus {
-    border: 2px solid #ff9999;
-    margin: 0;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-}
+    .checkoutinputhalf:focus {
+        border: 2px solid #ff9999;
+        margin: 0;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+    }
 
 .checkoutcustomhr {
     height: 1px;
@@ -1893,10 +1895,10 @@ input[type=number] {
     align-self: center;
 }
 
-.checkoutreturnlinka:hover {
-    color: #ff8383;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-}
+    .checkoutreturnlinka:hover {
+        color: #ff8383;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+    }
 
 #checkoutshippingbottomlong {
     margin-bottom: 60px;
@@ -1914,10 +1916,10 @@ input[type=number] {
     font-weight: 500;
 }
 
-.checkoutcontinuebutton:hover {
-    background-color: #ff6666;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-}
+    .checkoutcontinuebutton:hover {
+        background-color: #ff6666;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+    }
 
 .checkouttabletext {
     align-self: center;
@@ -1941,10 +1943,10 @@ input[type=number] {
     color: #ff9999;
 }
 
-.emptycarta:hover {
-    color: #ff6666;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-}
+    .emptycarta:hover {
+        color: #ff6666;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+    }
 
 .checkoutshippingfirsttable {
     border: 1px solid rgba(114,114,114,0.25);
@@ -1975,7 +1977,7 @@ input[type=number] {
 }
 
 .checkouttableweak {
-    color: rgba(114,114,114,0.9); 
+    color: rgba(114,114,114,0.9);
 }
 
 .checkouttablea {
@@ -1985,10 +1987,10 @@ input[type=number] {
     justify-self: center;
 }
 
-.checkouttablea:hover {
-    color: #ffaeae;
-    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
-}
+    .checkouttablea:hover {
+        color: #ffaeae;
+        transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+    }
 
 #checkoutdebralogoaresponsive {
     display: none;
