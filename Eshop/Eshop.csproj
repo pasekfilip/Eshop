@@ -189,6 +189,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Icons\cart_black.png" />
     <Content Include="Icons\cart_white.png" />
+    <Content Include="Icons\checkout_success_tick.png" />
     <Content Include="Icons\debra-logo-b_300x.png" />
     <Content Include="Icons\debra-logo-w_300x.png" />
     <Content Include="Icons\facebook_original.png" />
@@ -293,6 +294,7 @@
     <Content Include="Views\Payment\InputsForCheckoutCustomer.cshtml" />
     <Content Include="Views\Payment\CheckoutShipping.cshtml" />
     <Content Include="Views\Payment\CheckoutPayment.cshtml" />
+    <Content Include="Views\Payment\CheckoutSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

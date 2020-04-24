@@ -1898,8 +1898,13 @@ input[type=number] {
     transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
 }
 
+#checkoutshippingbottomlong {
+    margin-bottom: 60px;
+}
+
 .checkoutcontinuebutton {
     background-color: #ff9999;
+    color: #331f1f;
     border-radius: 6px;
     padding: 20px 20px 20px 20px;
     justify-self: right;
@@ -1912,6 +1917,10 @@ input[type=number] {
 .checkoutcontinuebutton:hover {
     background-color: #ff6666;
     transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+}
+
+.checkouttabletext {
+    align-self: center;
 }
 
 .errorMessageSecond {
@@ -1996,6 +2005,10 @@ input[type=number] {
     margin-bottom: 20px;
 }
 
+#checkoutsuccessbigdiv {
+    padding-bottom: 0;
+}
+
 #checkoutshippingwrappernoborder {
     border: none;
 }
@@ -2050,6 +2063,73 @@ input[type=number] {
     width: 96%;
     padding-left: 20px;
     padding-top: 18px;
+}
+
+.checkoutsuccessnomargin {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 8px;
+}
+
+#checkoutsuccessfirstp {
+    margin-bottom: 10px;
+}
+
+#checkoutsuccessp {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.checkoutsuccesordernumber {
+    font-size: 14px;
+    color: #545454;
+}
+
+.checkoutsuccessthank {
+    font-weight: 400;
+    font-size: 23px;
+    color: #333333;
+}
+
+.checkoutsuccestick {
+    width: 46px;
+    height: 46px;
+    margin-right: 50px;
+}
+
+.checkoutsuccesstickwrapper {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    grid-column-gap: 20px;
+    position: relative;
+    left: -66px;
+    transition: all 0.3s cubic-bezier(0.28, 0.36, 0.23, 1.03);
+}
+
+#checkoutsuccesswrappermargin {
+    margin-top: 40px;
+}
+
+.checkoutsuccessinfowrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70px 150px 70px;
+}
+
+#checkoutsuccesinfopmargin {
+    margin-bottom: 20px;
+}
+
+.checkoutsuccessinfopmargin {
+    margin-bottom: 5px;
+}
+
+.checkoutsuccessinfotext {
+    color: #545454;
+}
+
+.checkoutsuccesssummarywrapper {
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 1250px) {
@@ -2114,6 +2194,10 @@ input[type=number] {
 
     .checkoutloginlinkp {
         font-size: 13.5px;
+    }
+
+    .checkoutsuccesstickwrapper {
+        left: 0;
     }
 }
 
@@ -2580,5 +2664,15 @@ input[type=number] {
 
     .carttable {
         margin-left: 20px;
+    }
+
+    .checkoutsuccessinfowrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 50px 1fr 1fr 50px;
+        grid-row-gap: 20px;
+    }
+
+    #checkoutsuccessbigdiv {
+        padding-bottom: 15px;
     }
 }

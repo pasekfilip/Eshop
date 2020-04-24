@@ -7,21 +7,21 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            $(".checkoutshippingbillingaddress").hide();
+            $(".checkoutshippingbillingaddress").fadeOut();
             $("#checkoutshippingwrappernopadding").hide();
             $("#checkoutcustomhrspecial").css({ "opacity": "0%" });
             $("#checkoutshippingwrapperbeforespecial").css({ "border-radius": "4px", "margin-bottom": "20px" });
 
             $("#addressr2").click(function () {
-                $(".checkoutshippingbillingaddress").show();
-                $(".checkoutshippingbillingaddress").css({"background-color": "#fafafa"});
+                $(".checkoutshippingbillingaddress").fadeIn();
+                $(".checkoutshippingbillingaddress").css({ "background-color": "#fafafa" });
                 $("#checkoutshippingwrappernopadding").show();
                 //$("#checkoutcustomhrspecial").css({ "opacity": "100%" });
                 $("#checkoutshippingwrapperbeforespecial").css({ "margin-bottom": "0", "border-radius": "0", "border-top-left-radius": "4px", "border-top-right-radius": "4px" });
             });
 
             $("#addressr1").click(function () {
-                $(".checkoutshippingbillingaddress").hide();
+                $(".checkoutshippingbillingaddress").fadeOut();
                 $("#checkoutshippingwrappernopadding").hide();
                 $("#checkoutcustomhrspecial").css({ "opacity": "0%" });
                 $("#checkoutshippingwrapperbeforespecial").css({ "margin-bottom": "20px", "border-radius": "4px" });
@@ -363,7 +363,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="checkoutshippingbottom">
+                    <div id="checkoutshippingbottomlong" class="checkoutshippingbottom">
                         <a class="checkoutreturnlinka" href="#">< Return to shipping</a>
                         <a class="checkoutcontinuebutton" onclick="document.querySelector('form').submit()" href="#">Complete order</a>
                     </div>
