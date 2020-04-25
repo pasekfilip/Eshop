@@ -1,9 +1,9 @@
-﻿@model Eshop.Models.Checkout.Information
+﻿@using Eshop.Models.TemporaryClasses
+@model BigModelForInformation
 @{
     Layout = "~/Views/Shared/EmptyLayout.cshtml";
-    var data = Session["listOfProducts"];
 }
- 
+
 <div class="checkoutmainwrapper">
     <div class="leftsidewrapper">
         <a id="checkoutdebralogoinitial" class="checkoutdebralogoa" href="/Home"><img class="checkoutdebralogo" src="~/Icons/debra-logo-b_300x.png" alt="Alternate Text" /></a>
@@ -18,13 +18,13 @@
                 <div class="checkoutshippingfirsttable">
                     <div class="checkoutshippingrow">
                         <span class="checkouttabletext checkouttableweak">Contact</span>
-                        <span class="checkouttabletext">@Model.EmailOrPhoneNumber</span>
+                        <span class="checkouttabletext">@Model.InformationAboutCustomer.EmailOrPhoneNumber</span>
                         <a class="checkouttablea" href="~/Payment/CheckoutCustomer">Change</a>
                     </div>
                     <div class="checkoutcustomhr checkoutrighthr"></div>
                     <div class="checkoutshippingrow">
                         <span class="checkouttabletext checkouttableweak">Ship to</span>
-                        <span class="checkouttabletext">@Model.Address, @Model.PostalCode, @Model.City, @Model.Country</span>
+                        <span class="checkouttabletext">@Model.InformationAboutCustomer.Address, @Model.InformationAboutCustomer.PostalCode, @Model.InformationAboutCustomer.City, @Model.InformationAboutCustomer.Country</span>
                         <a class="checkouttablea" href="~/Payment/CheckoutCustomer">Change</a>
                     </div>
                 </div>
@@ -38,10 +38,10 @@
                 </div>
                 <div class="checkoutshippingbottom">
                     <a class="checkoutreturnlinka" href="#">< Return to information</a>
-                    <a class="checkoutcontinuebutton" onclick="document.querySelector('form').submit()" href="#">Continue to payment</a>
+                    <a class="checkoutcontinuebutton" href="/Payment/CheckoutPayment">Continue to payment</a>
                 </div>
             </form>
         </div>
     </div>
-    @{Html.RenderPartial("ProductSide",data);}
+    @{Html.RenderPartial("ProductSide", Model.Data);}
 </div>

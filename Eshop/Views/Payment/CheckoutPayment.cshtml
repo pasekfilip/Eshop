@@ -1,4 +1,5 @@
-﻿
+﻿@using Eshop.Models.TemporaryClasses
+@model BigModelForInformation
 @{
     Layout = "~/Views/Shared/EmptyLayout.cshtml";
 }
@@ -43,14 +44,14 @@
                 <div class="checkoutshippingfirsttable">
                     <div class="checkoutshippingrow">
                         <span class="checkouttabletext checkouttableweak">Contact</span>
-                        <span class="checkouttabletext">email@gmail.com</span>
-                        <a class="checkouttablea" href="#">Change</a>
+                        <span class="checkouttabletext">@Model.InformationAboutCustomer.EmailOrPhoneNumber</span>
+                        <a class="checkouttablea" href="~/Payment/CheckoutCustomer">Change</a>
                     </div>
                     <div class="checkoutcustomhr checkoutrighthr"></div>
                     <div class="checkoutshippingrow">
                         <span class="checkouttabletext checkouttableweak">Ship to</span>
-                        <span class="checkouttabletext">Address 1, Apartment, suite, POSTAL CODEEEEEEEEEEEEEEEEEE City, Czech republic</span>
-                        <a class="checkouttablea" href="#">Change</a>
+                        <span class="checkouttabletext">@Model.InformationAboutCustomer.Address, @Model.InformationAboutCustomer.PostalCode, @Model.InformationAboutCustomer.City, @Model.InformationAboutCustomer.Country</span>
+                        <a class="checkouttablea" href="~/Payment/CheckoutCustomer">Change</a>
                     </div>
                     <div class="checkoutcustomhr checkoutrighthr"></div>
                     <div class="checkoutshippingrow">
@@ -357,39 +358,10 @@
                 </div>
                 <div class="checkoutshippingbottom">
                     <a class="checkoutreturnlinka" href="#">< Return to shipping</a>
-                    <a class="checkoutcontinuebutton" onclick="document.querySelector('form').submit()" href="#">Complete order</a>
+                    <a class="checkoutcontinuebutton" href="#">Complete order</a>
                 </div>
             </form>
         </div>
     </div>
-    <div class="rightsidewrapper">
-        <div>
-            <div class="checkoutrightsidewrapper">
-                <div class="checkoutproductimagewrapper">
-                    <img class="checkoutproductimage" src="/Icons/Product_Images/green_bag.png" alt="Alternate Text" />
-                </div>
-                <span class="checkoutproductquantity">
-                    <span class="checkoutquantitytext">1</span>
-                </span>
-                <span class="checkoutproductname">
-                    Demo product title
-                </span>
-                <span class="checkoutproductprice">
-                    $50
-                </span>
-            </div>
-            <div class="checkoutcustomhr"></div>
-            <div class="checkoutrightsubtable">
-                <p class="checkoutrightsubp">Subtotal</p>
-                <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightboldprice">$50</p>
-                <p class="checkoutrightsubp">Shipping</p>
-                <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightboldprice">$0.24</p>
-            </div>
-            <div class="checkoutcustomhr"></div>
-            <div class="checkoutrightsubtotal">
-                <p class="checkoutrightsubtotalp">Total</p>
-                <span class="checkoutrightsubtotalmainspan"><span class="checkoutrightsubtotalusdspan">USD</span> <span class="checkoutrightsubtotalpricespan">$50</span></span>
-            </div>
-        </div>
-    </div>
+    @{ Html.RenderPartial("ProductSide", Model.Data);}
 </div>

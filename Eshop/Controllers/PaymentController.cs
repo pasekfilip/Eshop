@@ -34,7 +34,8 @@ namespace Eshop.Controllers
 
         public ActionResult CheckoutPayment()
         {
-            return View();
+            var model = SetingUpBigModel((Information)Session["InformationAboutCustomer"]);
+            return View(model);
         }
 
         [HttpPost]
@@ -57,13 +58,13 @@ namespace Eshop.Controllers
         [HttpPost]
         public ActionResult InformatinAboutCustomer(Information information)
         {
+            var model = SetingUpBigModel(information);
             if (ModelState.IsValid)
             {
                 Session["InformationAboutCustomer"] = information;
-                return View("CheckoutShipping", information);
+                return View("CheckoutShipping", model);
             }
 
-            var model = SetingUpBigModel(information);
             return View("CheckoutCustomer", "~/Views/Shared/EmptyLayout.cshtml", model);
         }
 

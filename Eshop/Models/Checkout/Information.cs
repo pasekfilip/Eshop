@@ -31,7 +31,7 @@ namespace Eshop.Models.Checkout
 
         [RegularExpression(@"^\d{5}$", ErrorMessage = "Enter a valid postal code")]
         [Required(ErrorMessage = "Enter a valid postal code")]
-        public int PostalCode { get; set; }
+        public string PostalCode { get; set; }
 
         public bool SaveInformation { get; set; }
     }
