@@ -12,5 +12,6 @@ namespace Eshop.Models.TemporaryClasses
         public List<ProductLabelImages> Data { get; set; }
 
         public Information InformationAboutCustomer { get; set; }
+        public BillingInformation BillingInformation { get; set; }
     }
 }

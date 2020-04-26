@@ -24,17 +24,30 @@ namespace Eshop.Controllers
 
         public ActionResult CheckoutSuccess()
         {
-            return View();
+            var information = (Information)Session["InformationAboutCustomer"];
+            var billingAdress = new BillingInformation();
+            billingAdress.FirstName = information.FirstName;
+            billingAdress.LastName = information.LastName;
+            billingAdress.Address = information.Address;
+            billingAdress.City = information.City;
+            billingAdress.Country = information.Country;
+            billingAdress.PostalCode = information.PostalCode;
+            Session["billingAdress"] = billingAdress;
+            ViewBag.TotalSum = CountTotalSum();
+            var model = SetingUpBigModel(billingAdress);
+            return View(model);
         }
 
         public ActionResult CheckoutShipping()
         {
-            return View();
+            var model = SetingUpBigModel((Information)Session["InformationAboutCustomer"]);
+            return View(model);
         }
 
         public ActionResult CheckoutPayment()
         {
-            var model = SetingUpBigModel((Information)Session["InformationAboutCustomer"]);
+            var model = new BillingInformation();
+            Session["HashCode"] = model.GetHashCode();
             return View(model);
         }
 
@@ -68,6 +81,19 @@ namespace Eshop.Controllers
             return View("CheckoutCustomer", "~/Views/Shared/EmptyLayout.cshtml", model);
         }
 
+        public ActionResult ValidateBillingAdress(BillingInformation information)
+        {
+            if (ModelState.IsValid)
+            {
+                Session["BillingAddress"] = information;
+                ViewBag.TotalSum = CountTotalSum();
+                var model = SetingUpBigModel(information);
+                return View("CheckoutSuccsess", model);
+            }
+
+            return View("CheckoutPayment", information);
+        }
+
         [HttpPost]
         public void UpdateSession(int[] inputs)
         {
@@ -91,6 +117,7 @@ namespace Eshop.Controllers
             return View("Cart", Session["listOfProducts"]);
         }
 
+
         public ActionResult ClearSession()
         {
             Session["listOfProducts"] = null;
@@ -111,6 +138,26 @@ namespace Eshop.Controllers
             model.Data = (List<ProductLabelImages>)Session["listOfProducts"];
             model.InformationAboutCustomer = information;
             return model;
+        }
+
+        private BigModelForInformation SetingUpBigModel(BillingInformation information)
+        {
+            var model = new BigModelForInformation();
+            model.Data = (List<ProductLabelImages>)Session["listOfProducts"];
+            model.InformationAboutCustomer = (Information)Session["InformationAboutCustomer"];
+            model.BillingInformation = information;
+            return model;
+        }
+
+        private string CountTotalSum()
+        {
+            decimal total = 0M;
+            foreach (var item in (List<ProductLabelImages>)Session["listOfProducts"])
+            {
+                total += item.Price * item.Quantity;
+            }
+            total += 0.24M;
+            return total.ToString("0.00");
         }
     }
 }

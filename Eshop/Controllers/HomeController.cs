@@ -21,6 +21,10 @@ namespace Eshop.Controllers
             return View(list);
         }
 
+        public ActionResult About()
+        {
+            return View();
+        }
         public ActionResult ProductDetail()
         {
             return View();

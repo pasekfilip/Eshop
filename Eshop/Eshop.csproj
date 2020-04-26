@@ -163,6 +163,7 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\TestingController.cs" />
+    <Compile Include="Models\Checkout\BillingInformation.cs" />
     <Compile Include="Models\Checkout\Information.cs" />
     <Compile Include="Models\MyContext.cs" />
     <Compile Include="Models\Repo\ProductRepository.cs" />
@@ -187,8 +188,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Icons\about1.jpg" />
+    <Content Include="Icons\about2.jpg" />
+    <Content Include="Icons\about3.jpg" />
+    <Content Include="Icons\about4.jpg" />
+    <Content Include="Icons\about5.jpg" />
     <Content Include="Icons\cart_black.png" />
     <Content Include="Icons\cart_white.png" />
+    <Content Include="Icons\checkout_success_tick.png" />
     <Content Include="Icons\debra-logo-b_300x.png" />
     <Content Include="Icons\debra-logo-w_300x.png" />
     <Content Include="Icons\facebook_original.png" />
@@ -203,6 +210,7 @@
     <Content Include="Icons\icons8-instagram-24.png" />
     <Content Include="Icons\icons8-play-button-24.png" />
     <Content Include="Icons\icons8-twitter-48.png" />
+    <Content Include="Icons\Images\about.png" />
     <Content Include="Icons\Images\banner-1.png" />
     <Content Include="Icons\Images\banner-2.png" />
     <Content Include="Icons\Images\breadcrumb.png" />
@@ -295,6 +303,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Payment\ProductSide.cshtml" />
     <Content Include="Views\Payment\CheckoutSuccess.cshtml" />
+    <Content Include="Views\Payment\InputsForCheckoutPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

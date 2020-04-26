@@ -1,108 +1,68 @@
-﻿
+﻿@using Eshop.Models.TemporaryClasses
+@model BigModelForInformation
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/EmptyLayout.cshtml";
 }
-@Styles.Render("~/Content/Site.css")
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>CheckoutCustomer</title>
-</head>
-<body>
-    <div class="checkoutmainwrapper">
-        <div class="leftsidewrapper">
-            <a id="checkoutdebralogoinitial" class="checkoutdebralogoa" href="/Home"><img class="checkoutdebralogo" src="~/Icons/debra-logo-b_300x.png" alt="Alternate Text" /></a>
-            <div class="checkoutmainformwrapper">
-                <div class="checkoutshippingsecondtable">
-                    <div class="checkoutsuccesstickwrapper">
-                        <span>
-                            <img src="/Icons/checkout_success_tick.png" class="checkoutsuccestick" alt="Alternate Text" />
-                        </span>
-                        <span>
-                            <p id="checkoutsuccessp" class="checkoutsuccesordernumber">Order #1005</p>
-                            <span class="checkoutsuccessthank">Thank you <span>First Name</span>!</span>
-                        </span>
-                    </div>
-                    <div id="checkoutsuccesswrappermargin" class="checkoutshippingwrapper">
-                        <p id="checkoutsuccessfirstp" class="checkoutcontactp checkoutsuccessnomargin">Your order is confirmed</p>
-                        <p class="checkouttabletext checkoutsuccessnomargin">You’ll receive a confirmation email with your order number shortly.</p>
-                    </div>
-                    <div id="checkoutsuccessbigdiv" class="checkoutshippingwrapper">
-                        <div class="checkoutsuccesssummarywrapper">
-                            <span id="checkoutsuccesinfopmargin" class="checkoutcontactp">Customer information</span>
-                            <div class="checkoutsuccessinfowrapper">
-                                <div class="checkoutsuccessinfo">
-                                    <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Contact information</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">email@gmail.com</div>
-                                </div>
-                                <div class="checkoutsuccessinfo">
-                                    <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Payment method</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Cash on Delivery (COD) - <span class="checkoutrightboldprice">$50.24</span></div>
-                                </div>
-                                <div class="checkoutsuccessinfo">
-                                    <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Shipping address</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext"><span>First Name</span> <span>Last Name</span></div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Address 1</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Apartment, suite</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext"><span>Postal Code</span><span>City</span></div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Country</div>
-                                </div>
-                                <div class="checkouttabletext checkoutsuccessinfo">
-                                    <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Billing address</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Shipping address</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext"><span>First Name</span> <span>Last Name</span></div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Address 1</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Apartment, suite</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext"><span>Postal Code</span> <span>City</span></div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Country</div>
-                                </div>
-                                <div class="checkouttabletext checkoutsuccessinfo ">
-                                    <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Shipping method</div>
-                                    <div class="checkouttabletext checkoutsuccessinfotext">Standard</div>
-                                </div>
+<div class="checkoutmainwrapper">
+    <div class="leftsidewrapper">
+        <a id="checkoutdebralogoinitial" class="checkoutdebralogoa" href="/Home"><img class="checkoutdebralogo" src="~/Icons/debra-logo-b_300x.png" alt="Alternate Text" /></a>
+        <div class="checkoutmainformwrapper">
+            <div class="checkoutshippingsecondtable">
+                <div class="checkoutsuccesstickwrapper">
+                    <span>
+                        <img src="/Icons/checkout_success_tick.png" class="checkoutsuccestick" alt="Alternate Text" />
+                    </span>
+                    <span>
+                        <p id="checkoutsuccessp" class="checkoutsuccesordernumber">Order #1005</p>
+                        <span class="checkoutsuccessthank">Thank you <span>First Name</span>!</span>
+                    </span>
+                </div>
+                <div id="checkoutsuccesswrappermargin" class="checkoutshippingwrapper">
+                    <p id="checkoutsuccessfirstp" class="checkoutcontactp checkoutsuccessnomargin">Your order is confirmed</p>
+                    <p class="checkouttabletext checkoutsuccessnomargin">You’ll receive a confirmation email with your order number shortly.</p>
+                </div>
+                <div id="checkoutsuccessbigdiv" class="checkoutshippingwrapper">
+                    <div class="checkoutsuccesssummarywrapper">
+                        <span id="checkoutsuccesinfopmargin" class="checkoutcontactp">Customer information</span>
+                        <div class="checkoutsuccessinfowrapper">
+                            <div class="checkoutsuccessinfo">
+                                <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Contact information</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">@Model.InformationAboutCustomer.EmailOrPhoneNumber</div>
+                            </div>
+                            <div class="checkoutsuccessinfo">
+                                <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Payment method</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">Cash on Delivery (COD) - <span class="checkoutrightboldprice">$@ViewBag.TotalSum</span></div>
+                            </div>
+                            <div class="checkoutsuccessinfo">
+                                <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Shipping address</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext"><span>@Model.InformationAboutCustomer.FirstName</span> <span>@Model.InformationAboutCustomer.LastName</span></div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">@Model.InformationAboutCustomer.Address</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">@Model.InformationAboutCustomer.Apartment</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext"><span>@Model.InformationAboutCustomer.PostalCode</span><span>@Model.InformationAboutCustomer.City</span></div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">@Model.InformationAboutCustomer.Country</div>
+                            </div>
+                            <div class="checkoutsuccessinfo">
+                                <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Billing address</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext"><span>@Model.BillingInformation.FirstName</span> <span>@Model.BillingInformation.LastName</span></div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">@Model.BillingInformation.Address</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">@Model.BillingInformation.Apartment</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext"><span>@Model.BillingInformation.PostalCode</span> <span>@Model.BillingInformation.City</span></div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">@Model.BillingInformation.Country</div>
+                            </div>
+                            <div class="checkouttabletext checkoutsuccessinfo ">
+                                <div class="checkouttabletext checkoutrightboldprice checkoutsuccessinfopmargin">Shipping method</div>
+                                <div class="checkouttabletext checkoutsuccessinfotext">Standard</div>
                             </div>
                         </div>
                     </div>
-                    <div class="checkoutshippingbottom">
-                        <span class="checkouttabletext">Need help? <a class="checkoutreturnlinka" href="#"> Contact us</a></span>
-                        <a class="checkoutcontinuebutton" onclick="document.querySelector('form').submit()" href="#">Continue shopping</a>
-                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="rightsidewrapper">
-            <div>
-                <div class="checkoutrightsidewrapper">
-                    <div class="checkoutproductimagewrapper">
-                        <img class="checkoutproductimage" src="/Icons/Product_Images/green_bag.png" alt="Alternate Text" />
-                    </div>
-                    <span class="checkoutproductquantity">
-                        <span class="checkoutquantitytext">1</span>
-                    </span>
-                    <span class="checkoutproductname">
-                        Demo product title
-                    </span>
-                    <span class="checkoutproductprice">
-                        $50
-                    </span>
-                </div>
-                <div class="checkoutcustomhr"></div>
-                <div class="checkoutrightsubtable">
-                    <p class="checkoutrightsubp">Subtotal</p>
-                    <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightboldprice">$50</p>
-                    <p class="checkoutrightsubp">Shipping</p>
-                    <p class="checkoutrightsubp checkoutrightrightsubp checkoutrightboldprice">$0.24</p>
-                </div>
-                <div class="checkoutcustomhr"></div>
-                <div class="checkoutrightsubtotal">
-                    <p class="checkoutrightsubtotalp">Total</p>
-                    <span class="checkoutrightsubtotalmainspan"><span class="checkoutrightsubtotalusdspan">USD</span> <span class="checkoutrightsubtotalpricespan">$50</span></span>
+                <div class="checkoutshippingbottom">
+                    <span class="checkouttabletext">Need help? <a class="checkoutreturnlinka" href="#"> Contact us</a></span>
+                    <a class="checkoutcontinuebutton" href="/Home/">Continue shopping</a>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+    @{ Html.RenderPartial("ProductSide", Model.Data);}
+</div>
