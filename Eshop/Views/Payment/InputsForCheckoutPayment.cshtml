@@ -2,7 +2,7 @@
 @model BillingInformation
 
 
-<form action="/" method="post">
+<form action="/Payment/ValidateBillingAddress" method="post">
     <div id="checkoutshippingwrappernopadding" class="checkoutshippingwrapper">
         <div class="checkoutshippingbillingaddress">
             <div class="checkoutshippingbillingaddresspadding">
@@ -281,5 +281,5 @@
 <div class="checkoutshippingbottom">
     <a class="checkoutreturnlinka" href="/Payment/CheckoutShipping">< Return to shipping</a>
     <a class="checkoutcontinuebutton" href="/Payment/CheckoutSuccess">Complete order</a>
-    <a class="checkoutcontinuebutton" href="/Payment/ValidateBillingAdress">Complete order</a>
+    <a class="checkoutcontinuebutton" href="#" onclick="document.querySelector('form').submit()">Complete order</a>
 </div>

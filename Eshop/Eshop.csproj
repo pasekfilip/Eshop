@@ -166,12 +166,15 @@
     <Compile Include="Models\Checkout\BillingInformation.cs" />
     <Compile Include="Models\Checkout\Information.cs" />
     <Compile Include="Models\MyContext.cs" />
+    <Compile Include="Models\Repo\OrderRepository.cs" />
     <Compile Include="Models\Repo\ProductRepository.cs" />
     <Compile Include="Models\Repo\UserRepository.cs" />
     <Compile Include="Models\SearchBar.cs" />
     <Compile Include="Models\Tables\Category.cs" />
     <Compile Include="Models\Tables\Image.cs" />
+    <Compile Include="Models\Tables\Order.cs" />
     <Compile Include="Models\Tables\Product.cs" />
+    <Compile Include="Models\Tables\ProductForOrder.cs" />
     <Compile Include="Models\Tables\User.cs" />
     <Compile Include="Global.asax.cs" />
     <Compile Include="Models\TemporaryClasses\BigModelForInformation.cs" />

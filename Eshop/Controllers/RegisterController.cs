@@ -29,7 +29,7 @@ namespace Eshop.Controllers
                 return RedirectToAction("Home", "Index");
             }
 
-            return View(new User());
+            return View(user);
         }
     }
 }

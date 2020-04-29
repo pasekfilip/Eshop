@@ -30,9 +30,6 @@
                         }),
                     datatype: 'json',
                     contentType: "application/json; charset=utf-8",
-                    complete: function () {
-                         window.location.pathname = "Payment/Cart";
-                    },
                     error: function (jqXHR, textStatus, errorThrown) {
                         alert("jqXHR:" + jqXHR.status + " errorThrown: " + errorThrown);
                     }
